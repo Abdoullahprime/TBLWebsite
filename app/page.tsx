@@ -16,9 +16,9 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <NewsTicker />
         <RatesStrip />
         <QuickLinks />
-        <NewsTicker />
         <Services />
         <DigitalFeature />
         <WhyBankWithUs />
