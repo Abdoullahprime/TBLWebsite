@@ -5,6 +5,7 @@ import RatesStrip from "@/components/RatesStrip";
 import QuickLinks from "@/components/QuickLinks";
 import NewsTicker from "@/components/NewsTicker";
 import WhyBankWithUs from "@/components/WhyBankWithUs";
+import Partners from "@/components/Partners";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
         <RatesStrip />
         <QuickLinks />
         <WhyBankWithUs />
+        <Partners />
       </main>
       <Footer />
     </>
