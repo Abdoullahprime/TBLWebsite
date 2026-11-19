@@ -3,9 +3,10 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import RatesStrip from "@/components/RatesStrip";
 import QuickLinks from "@/components/QuickLinks";
+import NewsTicker from "@/components/NewsTicker";
 import Services from "@/components/Services";
 import DigitalFeature from "@/components/DigitalFeature";
-import TrustStats from "@/components/TrustStats";
+import WhyBankWithUs from "@/components/WhyBankWithUs";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -17,9 +18,10 @@ export default function Home() {
         <Hero />
         <RatesStrip />
         <QuickLinks />
+        <NewsTicker />
         <Services />
         <DigitalFeature />
-        <TrustStats />
+        <WhyBankWithUs />
       </main>
       <Footer />
     </>
