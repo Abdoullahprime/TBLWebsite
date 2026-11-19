@@ -25,7 +25,7 @@ export default function Hero() {
               and abroad — secure, simple, and always accessible.
             </p>
 
-            <div className="flex gap-3 flex-wrap mb-14">
+            <div className="flex gap-3 flex-wrap">
               <a
                 href="#"
                 className="bg-[#E8A820] text-[#0A1F5C] font-bold px-7 py-3.5 rounded-xl hover:bg-[#F5C842] transition-all hover:-translate-y-0.5 shadow-[0_4px_16px_rgba(232,168,32,0.35)]"
@@ -38,20 +38,6 @@ export default function Hero() {
               >
                 Explore Services
               </a>
-            </div>
-
-            {/* Stats */}
-            <div className="flex gap-10 flex-wrap">
-              {[
-                { num: "27+", label: "Years of service" },
-                { num: "GMD 5B+", label: "Total assets" },
-                { num: "12", label: "Branch network" },
-              ].map((s) => (
-                <div key={s.label} className="font-[family-name:var(--font-sora)]">
-                  <div className="text-2xl font-bold text-[#0A1F5C] tabular-nums">{s.num}</div>
-                  <div className="text-xs text-gray-400 mt-0.5">{s.label}</div>
-                </div>
-              ))}
             </div>
           </div>
 

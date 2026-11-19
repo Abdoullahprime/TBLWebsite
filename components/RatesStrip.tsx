@@ -1,31 +1,26 @@
-const rates = [
-  { pair: "USD / GMD", val: "68.40" },
-  { pair: "GBP / GMD", val: "87.15" },
-  { pair: "EUR / GMD", val: "74.60" },
-  { pair: "XOF / GMD", val: "0.112" },
+const stats = [
+  { num: "27+", label: "Years of Service" },
+  { num: "GMD 5B+", label: "Total Assets" },
+  { num: "150K+", label: "Active Customers" },
+  { num: "12", label: "Branch Network" },
 ];
 
 export default function RatesStrip() {
   return (
-    <div className="bg-[#E8A820] py-4">
-      <div className="max-w-6xl mx-auto px-5 flex items-center gap-6 flex-wrap justify-between">
-        <span className="font-[family-name:var(--font-sora)] text-xs font-bold text-[#0A1F5C] uppercase tracking-widest">
-          Live Exchange Rates
-        </span>
-        <div className="flex gap-8 flex-wrap">
-          {rates.map((r) => (
-            <div key={r.pair} className="flex flex-col">
-              <span className="text-[11px] text-[#0A1F5C]/60 font-medium">{r.pair}</span>
-              <span className="font-[family-name:var(--font-sora)] text-lg font-bold text-[#0A1F5C] tabular-nums">{r.val}</span>
+    <div className="bg-white border-y border-gray-100 py-12">
+      <div className="max-w-6xl mx-auto px-5">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          {stats.map((s, i) => (
+            <div key={s.label} className={`${i < stats.length - 1 ? "md:border-r border-gray-100" : ""}`}>
+              <div className="font-[family-name:var(--font-sora)] text-4xl md:text-5xl font-bold text-[#0A1F5C] tabular-nums mb-2">
+                {s.num}
+              </div>
+              <div className="text-sm font-semibold text-gray-500 uppercase tracking-wider">
+                {s.label}
+              </div>
             </div>
           ))}
         </div>
-        <a
-          href="#"
-          className="bg-[#0A1F5C] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#1a3178] transition-colors"
-        >
-          Check ATMs
-        </a>
       </div>
     </div>
   );
