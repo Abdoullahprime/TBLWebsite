@@ -39,32 +39,15 @@ const links = [
       </svg>
     ),
   },
-  {
-    label: "Personal Loans",
-    icon: (
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0A1F5C" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <line x1="12" y1="1" x2="12" y2="23"/>
-        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-      </svg>
-    ),
-  },
-  {
-    label: "SME & Business",
-    icon: (
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0A1F5C" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-        <polyline points="9 22 9 12 15 12 15 22"/>
-      </svg>
-    ),
-  },
 ];
 
 export default function QuickLinks() {
   return (
-    <div className="bg-white py-6 px-5">
+    /* negative margin pulls card up to overlap the gold band above */
+    <div className="relative z-10 -mt-8 pb-6 px-5">
       <div className="max-w-6xl mx-auto">
-        <div className="border border-gray-200 rounded-2xl px-6 py-5 shadow-sm">
-          <div className="flex items-center justify-between gap-4 flex-wrap">
+        <div className="bg-white border border-gray-200 rounded-2xl px-8 py-6 shadow-lg">
+          <div className="flex items-center justify-around gap-4 flex-wrap">
             {links.map((link) => (
               <a
                 key={link.label}
