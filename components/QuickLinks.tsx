@@ -52,7 +52,7 @@ export default function QuickLinks() {
               <a
                 key={link.label}
                 href="#"
-                className="flex flex-col items-center gap-2 group min-w-[80px] no-underline px-8 first:pl-0 last:pr-0"
+                className="flex flex-col items-center gap-2 group min-w-[80px] no-underline flex-1 px-4"
               >
                 <div className="w-14 h-14 rounded-full bg-[#EEF2FF] flex items-center justify-center group-hover:bg-[#E8A820]/15 group-hover:scale-105 transition-all">
                   {link.icon}
