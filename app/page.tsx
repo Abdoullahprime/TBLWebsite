@@ -2,6 +2,7 @@ import Topbar from "@/components/Topbar";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import RatesStrip from "@/components/RatesStrip";
+import QuickLinks from "@/components/QuickLinks";
 import Services from "@/components/Services";
 import DigitalFeature from "@/components/DigitalFeature";
 import TrustStats from "@/components/TrustStats";
@@ -15,6 +16,7 @@ export default function Home() {
       <main>
         <Hero />
         <RatesStrip />
+        <QuickLinks />
         <Services />
         <DigitalFeature />
         <TrustStats />
