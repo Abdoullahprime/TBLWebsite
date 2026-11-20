@@ -87,7 +87,7 @@ export default function MobileBanking() {
             {/* QR + store buttons */}
             <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 flex items-center gap-6 flex-wrap">
               <div className="flex flex-col items-center gap-1.5 flex-shrink-0">
-                <Image src="/qr-code.png" alt="QR Code" width={96} height={96} className="rounded-lg" />
+                <Image src="/qr-code.png" alt="QR Code" width={140} height={140} className="rounded-lg" />
                 <span className="text-[10px] text-gray-400 font-semibold uppercase tracking-wider">Scan to download</span>
               </div>
               <div className="w-px h-20 bg-gray-200 hidden sm:block" />
