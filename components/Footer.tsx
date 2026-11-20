@@ -23,7 +23,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <a href="/" className="flex items-center no-underline mb-4">
-              <Image src="/tbl-logo.png" alt="Trust Bank Gambia" width={52} height={52} className="h-12 w-auto object-contain" />
+              <Image src="/logo.jpg" alt="Trust Bank Gambia" width={160} height={46} className="h-11 w-auto object-contain brightness-0 invert" />
             </a>
             <p className="text-white/40 text-sm leading-relaxed mb-5">
               A fully licensed commercial bank serving individuals and businesses across The Gambia since 1997.

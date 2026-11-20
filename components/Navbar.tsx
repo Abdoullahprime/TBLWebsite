@@ -116,7 +116,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-5 flex items-center justify-between py-3">
         {/* Logo */}
         <a href="/" className="flex items-center no-underline flex-shrink-0">
-          <Image src="/tbl-logo.png" alt="Trust Bank Gambia" width={52} height={52} className="h-11 w-auto object-contain" priority />
+          <Image src="/logo.jpg" alt="Trust Bank Gambia" width={180} height={52} className="h-11 w-auto object-contain" priority />
         </a>
 
         {/* Desktop nav — mouseLeave on the whole nav closes all dropdowns */}
