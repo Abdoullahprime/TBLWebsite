@@ -1,47 +1,19 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
+// Add photos to /public/moments/ and reference them here
+// Use any image format: .jpg .png .webp
 const moments = [
-  {
-    category: "Impact & Sustainability",
-    headline: "Gender Empowerment",
-    highlights: ["8 Female Heads", "+ 3 Board Members"],
-    extra: ["CSR Support: D6.2M", "Best CSR Award (West Africa 2023)"],
-  },
-  {
-    category: "Digital Transformation",
-    headline: "Core Banking Upgrade",
-    highlights: ["Flexcube 12.2 to 14.6"],
-    extra: ["Focus: Enhanced Digital Banking & Cybersecurity"],
-  },
-  {
-    category: "Robust Growth & Stability",
-    headline: "Total Assets D12.8BN",
-    highlights: ["↑ 11.12%"],
-    extra: ["Customer Deposits D10.7BN", "↑ 7.0%"],
-  },
-  {
-    category: "Awards & Recognition",
-    headline: "Best Bank in Gambia",
-    highlights: ["EMEA Finance 2023"],
-    extra: ["27 consecutive years of trust", "Ranked #1 in customer satisfaction"],
-  },
-  {
-    category: "Financial Inclusion",
-    headline: "Mobile Money Integration",
-    highlights: ["AfriMoney & QMoney"],
-    extra: ["Over 150,000 mobile wallet users", "Free inter-bank transfers"],
-  },
-  {
-    category: "Community Investment",
-    headline: "Education & Health",
-    highlights: ["D6.2M CSR spend"],
-    extra: ["School builds in rural Gambia", "Healthcare sponsorships"],
-  },
+  { src: "/moments/moment-1.jpg", alt: "Impact & Sustainability" },
+  { src: "/moments/moment-2.jpg", alt: "Digital Transformation" },
+  { src: "/moments/moment-3.jpg", alt: "Robust Growth & Stability" },
+  { src: "/moments/moment-4.jpg", alt: "Awards & Recognition" },
+  { src: "/moments/moment-5.jpg", alt: "Financial Inclusion" },
+  { src: "/moments/moment-6.jpg", alt: "Community Investment" },
 ];
 
-// 6 items, 3 per page → 2 pages
-const PAGES = 2;
+const PAGES = 2; // 6 items / 3 per page
 
 export default function MomentsSlideshow() {
   const [page, setPage] = useState(0);
@@ -99,45 +71,16 @@ export default function MomentsSlideshow() {
             {cards.map((m, i) => (
               <div
                 key={i}
-                className="bg-[#0A1F5C] rounded-2xl overflow-hidden shadow-xl border border-white/10 flex flex-col"
+                className="relative rounded-2xl overflow-hidden shadow-xl"
+                style={{ aspectRatio: "4/3" }}
               >
-                {/* Card header */}
-                <div className="bg-white/10 px-5 pt-5 pb-3">
-                  <div className="bg-white rounded-xl px-4 py-2 text-center">
-                    <span className="font-[family-name:var(--font-sora)] text-[#0A1F5C] font-bold text-sm uppercase tracking-wide leading-snug">
-                      {m.category}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Card body */}
-                <div className="flex-1 px-5 py-4 flex flex-col gap-3">
-                  <div className="font-[family-name:var(--font-sora)] text-white font-bold text-lg leading-snug">
-                    {m.headline}
-                  </div>
-                  <div className="flex flex-col gap-1">
-                    {m.highlights.map((h, j) => (
-                      <span key={j} className="text-[#E8A820] font-bold text-base">
-                        {h}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="mt-auto flex flex-col gap-1 pt-3 border-t border-white/10">
-                    {m.extra.map((e, j) => (
-                      <span key={j} className="text-white/75 text-sm">
-                        {e}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Footer */}
-                <div className="px-5 py-3 bg-[#E8A820]/10 flex items-center gap-2 border-t border-white/10">
-                  <div className="w-6 h-6 rounded-full bg-[#E8A820]/30 flex items-center justify-center">
-                    <span className="text-[#E8A820] text-xs font-black">T</span>
-                  </div>
-                  <span className="text-white/60 text-xs font-semibold uppercase tracking-wider">Trust Bank</span>
-                </div>
+                <Image
+                  src={m.src}
+                  alt={m.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
               </div>
             ))}
           </div>
