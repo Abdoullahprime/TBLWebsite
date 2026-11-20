@@ -122,7 +122,7 @@ export default function WhyBankWithUs() {
   const [experience, speed, efficiency, services, support, security] = items;
 
   return (
-    <section className="bg-[#0A1F5C] py-20">
+    <section className="bg-[#0A1F5C] pt-4 pb-20">
       <div className="max-w-6xl mx-auto px-5">
         {/* Header */}
         <div className="mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
