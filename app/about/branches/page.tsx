@@ -252,8 +252,8 @@ export default function BranchesPage() {
                       <p className="text-xs text-[#E8A820] font-semibold mt-0.5">{branch.region}</p>
                     </div>
                   </div>
-                  <p className="text-sm text-white/60 mb-4">{branch.address}</p>
-                  <div className="space-y-1.5 text-xs text-white/70">
+                  <p className="text-sm text-white mb-4">{branch.address}</p>
+                  <div className="space-y-1.5 text-xs text-white">
                     <div className="flex items-center gap-1.5">
                       <PhoneIcon />
                       <span>{branch.phone}</span>
