@@ -42,7 +42,7 @@ const links = [
 export default function QuickLinks() {
   return (
     /* Split background: top half gold, bottom half navy — card sits centered on boundary */
-    <div className="relative py-10">
+    <div className="relative py-6">
       <div className="absolute inset-0 flex flex-col pointer-events-none" aria-hidden="true">
         <div className="flex-1 bg-[#E8A820]" />
         <div className="flex-1 bg-[#0A1F5C]" />
