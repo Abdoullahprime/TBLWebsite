@@ -11,7 +11,7 @@ export default function RatesStrip() {
         <div className="grid grid-cols-3 gap-4 text-center">
           {stats.map((s, i) => (
             <div key={s.label} className={`${i < stats.length - 1 ? "border-r border-[#c88b0e]" : ""}`}>
-              <div className="font-[family-name:var(--font-sora)] text-2xl sm:text-4xl md:text-5xl font-bold text-white tabular-nums mb-1">
+              <div className="font-[family-name:var(--font-sora)] text-lg sm:text-4xl md:text-5xl font-bold text-white tabular-nums mb-1">
                 {s.num}
               </div>
               <div className="text-[10px] sm:text-sm font-bold text-white/80 uppercase tracking-wider">
