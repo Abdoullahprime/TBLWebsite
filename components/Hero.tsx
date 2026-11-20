@@ -66,10 +66,15 @@ export default function Hero() {
             sizes="50vw"
             priority
           />
-          {/* left-edge: smooth white fade to blend into the page background */}
-          <div className="absolute inset-y-0 left-0 w-56" style={{ background: "linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.85) 30%, rgba(255,255,255,0) 100%)" }} />
-          {/* right-edge: subtle white fade */}
-          <div className="absolute inset-y-0 right-0 w-16" style={{ background: "linear-gradient(to left, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 100%)" }} />
+          {/* all-edge white fade — hides every hard boundary of the contained image */}
+          <div className="absolute inset-0 pointer-events-none" style={{
+            background: `
+              linear-gradient(to right,  #fff 0%, #fff 8%, rgba(255,255,255,0) 38%),
+              linear-gradient(to left,   #fff 0%, #fff 4%, rgba(255,255,255,0) 28%),
+              linear-gradient(to bottom, #fff 0%, rgba(255,255,255,0) 22%),
+              linear-gradient(to top,    #fff 0%, rgba(255,255,255,0) 22%)
+            `
+          }} />
         </div>
       </div>
 
