@@ -5,8 +5,7 @@ const links = [
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0A1F5C" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="7" width="20" height="14" rx="2"/>
         <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
-        <line x1="12" y1="12" x2="12" y2="16"/>
-        <line x1="10" y1="14" x2="14" y2="14"/>
+        <line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
       </svg>
     ),
   },
@@ -15,8 +14,7 @@ const links = [
     icon: (
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0A1F5C" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="3" width="18" height="18" rx="2"/>
-        <path d="M3 9h18"/>
-        <path d="M9 21V9"/>
+        <path d="M3 9h18"/><path d="M9 21V9"/>
       </svg>
     ),
   },
@@ -43,9 +41,13 @@ const links = [
 
 export default function QuickLinks() {
   return (
-    /* negative margin pulls card up to overlap the gold band above */
-    <div className="relative z-10 -mt-14 pb-6 px-5">
-      <div className="max-w-6xl mx-auto">
+    /* Split background: top half gold, bottom half navy — card sits centered on boundary */
+    <div className="relative py-10">
+      <div className="absolute inset-0 flex flex-col pointer-events-none" aria-hidden="true">
+        <div className="flex-1 bg-[#E8A820]" />
+        <div className="flex-1 bg-[#0A1F5C]" />
+      </div>
+      <div className="relative z-10 max-w-6xl mx-auto px-5">
         <div className="bg-white border border-gray-200 rounded-2xl px-8 py-6 shadow-lg">
           <div className="flex items-center justify-around gap-4 flex-wrap divide-x divide-gray-200">
             {links.map((link) => (
