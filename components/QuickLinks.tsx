@@ -49,17 +49,17 @@ export default function QuickLinks() {
       </div>
       <div className="relative z-10 max-w-6xl mx-auto px-5">
         <div className="bg-white border border-gray-200 rounded-2xl px-8 py-6 shadow-lg">
-          <div className="flex items-center justify-around gap-4 flex-wrap divide-x divide-gray-200">
+          <div className="flex items-center justify-around divide-x divide-gray-200">
             {links.map((link) => (
               <a
                 key={link.label}
                 href="#"
-                className="flex flex-col items-center gap-2 group min-w-[80px] no-underline flex-1 px-4"
+                className="flex flex-col items-center gap-1.5 group no-underline flex-1 px-2 sm:px-4"
               >
-                <div className="w-14 h-14 rounded-full bg-[#EEF2FF] flex items-center justify-center group-hover:bg-[#E8A820]/15 group-hover:scale-105 transition-all">
+                <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-[#EEF2FF] flex items-center justify-center group-hover:bg-[#E8A820]/15 group-hover:scale-105 transition-all">
                   {link.icon}
                 </div>
-                <span className="text-xs font-bold text-[#0A1F5C] text-center leading-tight group-hover:text-[#E8A820] transition-colors">
+                <span className="text-[10px] sm:text-xs font-bold text-[#0A1F5C] text-center leading-tight group-hover:text-[#E8A820] transition-colors">
                   {link.label}
                 </span>
               </a>
