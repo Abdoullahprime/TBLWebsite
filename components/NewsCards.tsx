@@ -7,36 +7,42 @@ const news = [
     date: "12 Nov 2024",
     title: "Trust Bank records GMD 5 billion in total assets for 2024",
     excerpt: "Trust Bank Gambia has surpassed the GMD 5 billion mark in total assets, marking a significant milestone in the bank's 27-year history.",
+    img: { bg: "from-[#0A1F5C] to-[#1a3178]", icon: "🏦" },
   },
   {
     tag: "Digital",
     date: "5 Nov 2024",
     title: "New mobile app update brings instant inter-bank transfers",
     excerpt: "The latest Trust Bank mobile app release introduces real-time transfers to all Gambian commercial banks, available free for all customers.",
+    img: { bg: "from-[#1a3178] to-[#0A1F5C]", icon: "📱" },
   },
   {
     tag: "Community",
     date: "28 Oct 2024",
     title: "Trust Bank supports Gambian farmers through NFSPMC partnership",
     excerpt: "Trust Bank has partnered with the National Food Security Processing and Marketing Corporation to provide affordable financing for smallholder farmers.",
+    img: { bg: "from-green-700 to-green-900", icon: "🌾" },
   },
   {
     tag: "Notice",
     date: "15 Jul 2024",
     title: "CBG lowers ACP/ACH cheque threshold to GMD 50,000",
     excerpt: "Following a Central Bank directive, Trust Bank has updated its cheque clearing process for all payments via ACP/ACH effective 15th July 2024.",
+    img: { bg: "from-[#E8A820] to-[#c88b0e]", icon: "📋" },
   },
   {
     tag: "Services",
     date: "10 Oct 2024",
     title: "Western Union remittances now available at all 12 branches",
     excerpt: "Trust Bank customers across The Gambia can now send and receive Western Union transfers from any of our 12 branch locations nationwide.",
+    img: { bg: "from-purple-700 to-purple-900", icon: "🌍" },
   },
   {
     tag: "Security",
     date: "1 Sep 2024",
     title: "Chip & PIN ATM card rollout completed across all branches",
     excerpt: "The migration from magnetic strip to chip and PIN technology is complete. Customers are urged to collect their new cards from their nearest branch.",
+    img: { bg: "from-slate-700 to-slate-900", icon: "🔒" },
   },
 ];
 
@@ -119,8 +125,15 @@ export default function NewsCards() {
               key={item.title}
               className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex flex-col hover:-translate-y-1 hover:shadow-md transition-all duration-200 group"
             >
-              {/* Colour band */}
-              <div className="h-1.5 bg-gradient-to-r from-[#0A1F5C] to-[#E8A820]" />
+              {/* Image banner */}
+              <div className={`h-44 bg-gradient-to-br ${item.img.bg} flex items-center justify-center relative overflow-hidden`}>
+                {/* subtle pattern */}
+                <div className="absolute inset-0 opacity-10"
+                  style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
+                <span className="text-6xl relative z-10 drop-shadow-lg select-none">{item.img.icon}</span>
+                {/* gold accent bar bottom */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#E8A820]" />
+              </div>
               <div className="p-6 flex flex-col flex-1">
                 <div className="flex items-center gap-3 mb-4">
                   <span className={`text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${tagColors[item.tag] ?? "bg-gray-100 text-gray-600"}`}>
