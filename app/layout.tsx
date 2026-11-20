@@ -8,6 +8,10 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "sw
 export const metadata: Metadata = {
   title: "Trust Bank Gambia",
   description: "Retail, corporate and digital banking for Gambians at home and abroad.",
+  icons: {
+    icon: "/tbl-logo.png",
+    apple: "/tbl-logo.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
