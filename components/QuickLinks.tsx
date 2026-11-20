@@ -1,6 +1,7 @@
 const links = [
   {
     label: "Retail Banking",
+    href: "/services/accounts",
     icon: (
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0A1F5C" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="7" width="20" height="14" rx="2"/>
@@ -11,6 +12,7 @@ const links = [
   },
   {
     label: "Corporate Banking",
+    href: "/services/accounts/corporate-current",
     icon: (
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0A1F5C" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="3" width="18" height="18" rx="2"/>
@@ -20,6 +22,7 @@ const links = [
   },
   {
     label: "Digital Banking",
+    href: "/services/digital/mobile-banking",
     icon: (
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0A1F5C" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <rect x="5" y="2" width="14" height="20" rx="2"/>
@@ -29,6 +32,7 @@ const links = [
   },
   {
     label: "International",
+    href: "/services/international/international-banking",
     icon: (
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0A1F5C" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10"/>
@@ -53,7 +57,7 @@ export default function QuickLinks() {
             {links.map((link) => (
               <a
                 key={link.label}
-                href="#"
+                href={link.href}
                 className="flex flex-col items-center gap-1.5 group no-underline flex-1 px-2 sm:px-4"
               >
                 <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-[#EEF2FF] flex items-center justify-center group-hover:bg-[#E8A820]/15 group-hover:scale-105 transition-all">
