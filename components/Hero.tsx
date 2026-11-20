@@ -66,12 +66,10 @@ export default function Hero() {
             sizes="50vw"
             priority
           />
-          {/* left-edge: white base + navy overlay to hide the hard line */}
-          <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-white to-transparent" />
-          <div className="absolute inset-y-0 left-0 w-40" style={{ background: "linear-gradient(to right, rgba(10,31,92,0.55) 0%, transparent 100%)" }} />
-          {/* right-edge: same treatment */}
-          <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white/70 to-transparent" />
-          <div className="absolute inset-y-0 right-0 w-24" style={{ background: "linear-gradient(to left, rgba(10,31,92,0.45) 0%, transparent 100%)" }} />
+          {/* left-edge: smooth white fade to blend into the page background */}
+          <div className="absolute inset-y-0 left-0 w-56" style={{ background: "linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.85) 30%, rgba(255,255,255,0) 100%)" }} />
+          {/* right-edge: subtle white fade */}
+          <div className="absolute inset-y-0 right-0 w-16" style={{ background: "linear-gradient(to left, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 100%)" }} />
         </div>
       </div>
 
