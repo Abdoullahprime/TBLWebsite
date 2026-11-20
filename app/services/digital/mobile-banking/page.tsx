@@ -70,13 +70,27 @@ export default function MobileBankingPage() {
               <p className="text-white/40 text-xs">Scan to download</p>
             </div>
           </div>
-          {/* Right — phone screens */}
-          <div className="relative min-h-[280px] flex items-end justify-center gap-3 px-6 pb-0 overflow-hidden">
-            <div className="relative w-32 h-56 mt-6">
-              <Image src="/app-screen-1.png" alt="Trust Bank app screen" fill className="object-contain object-bottom" />
+          {/* Right — phone mockups */}
+          <div className="relative min-h-[300px] flex items-end justify-center gap-4 px-6 pb-0 overflow-hidden">
+            {/* Phone 1 */}
+            <div className="relative flex-shrink-0 self-end" style={{ width: 120, height: 240 }}>
+              {/* Screen content (behind frame) */}
+              <div className="absolute rounded-[18px] overflow-hidden" style={{ inset: "5% 7%", zIndex: 1 }}>
+                <Image src="/app-screen-1.png" alt="Trust Bank app — Accounts" fill className="object-cover object-top" />
+              </div>
+              {/* Phone frame on top */}
+              <div className="absolute inset-0" style={{ zIndex: 2 }}>
+                <Image src="/phone-mockup.png" alt="" fill className="object-contain" />
+              </div>
             </div>
-            <div className="relative w-32 h-64 mt-2">
-              <Image src="/app-screen-2.png" alt="Trust Bank app screen" fill className="object-contain object-bottom" />
+            {/* Phone 2 — taller */}
+            <div className="relative flex-shrink-0 self-end mb-3" style={{ width: 130, height: 268 }}>
+              <div className="absolute rounded-[18px] overflow-hidden" style={{ inset: "5% 7%", zIndex: 1 }}>
+                <Image src="/app-screen-2.png" alt="Trust Bank app — Banking" fill className="object-cover object-top" />
+              </div>
+              <div className="absolute inset-0" style={{ zIndex: 2 }}>
+                <Image src="/phone-mockup.png" alt="" fill className="object-contain" />
+              </div>
             </div>
           </div>
         </div>
