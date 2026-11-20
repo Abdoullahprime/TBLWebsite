@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import Image from "next/image";
 
 const board = [
@@ -60,8 +59,6 @@ function PersonCard({ person }: { person: { name: string; role: string; img: str
 export default function AboutPage() {
   return (
     <>
-      <Navbar />
-
       {/* Hero */}
       <section className="bg-[#0A1F5C] relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none opacity-10"
