@@ -126,7 +126,7 @@ export default function NewsCards() {
               className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex flex-col hover:-translate-y-1 hover:shadow-md transition-all duration-200 group"
             >
               {/* Image banner */}
-              <div className={`h-44 bg-gradient-to-br ${item.img.bg} flex items-center justify-center relative overflow-hidden`}>
+              <div className={`h-56 bg-gradient-to-br ${item.img.bg} flex items-center justify-center relative overflow-hidden`}>
                 {/* subtle pattern */}
                 <div className="absolute inset-0 opacity-10"
                   style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
