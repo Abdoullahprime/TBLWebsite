@@ -5,6 +5,7 @@ import RatesStrip from "@/components/RatesStrip";
 import QuickLinks from "@/components/QuickLinks";
 import NewsTicker from "@/components/NewsTicker";
 import WhyBankWithUs from "@/components/WhyBankWithUs";
+import MomentsSlideshow from "@/components/MomentsSlideshow";
 import MobileBanking from "@/components/MobileBanking";
 import ExchangeRates from "@/components/ExchangeRates";
 import NewsCards from "@/components/NewsCards";
@@ -23,6 +24,7 @@ export default function Home() {
         <RatesStrip />
         <QuickLinks />
         <WhyBankWithUs />
+        <MomentsSlideshow />
         <MobileBanking />
         <ExchangeRates />
         <NewsCards />
