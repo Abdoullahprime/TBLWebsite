@@ -1,52 +1,55 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const news = [
   {
-    tag: "Corporate",
-    date: "12 Nov 2024",
-    title: "Trust Bank records GMD 5 billion in total assets for 2024",
-    excerpt: "Trust Bank Gambia has surpassed the GMD 5 billion mark in total assets, marking a significant milestone in the bank's 27-year history.",
-    img: { bg: "from-[#0A1F5C] to-[#1a3178]", icon: "🏦" },
+    tag: "Events",
+    date: "9 Nov 2026",
+    title: "Trust Bank MD Named West African Banker of the Year 2025",
+    excerpt: "Trust Bank Managing Director has been honoured with the prestigious West African Banker of the Year award, recognising outstanding leadership in the region's banking sector.",
+    imgSrc: "/news/news-1.jpg",
   },
   {
-    tag: "Digital",
-    date: "5 Nov 2024",
-    title: "New mobile app update brings instant inter-bank transfers",
-    excerpt: "The latest Trust Bank mobile app release introduces real-time transfers to all Gambian commercial banks, available free for all customers.",
-    img: { bg: "from-[#1a3178] to-[#0A1F5C]", icon: "📱" },
+    tag: "News",
+    date: "28 Oct 2026",
+    title: "Interim Dividends for 2026 Announced",
+    excerpt: "Trust Bank PLC has announced the payment of interim dividends for the financial year 2026. Shareholders are advised to review the closure of register dates.",
+    imgSrc: "/news/news-2.jpg",
   },
   {
-    tag: "Community",
-    date: "28 Oct 2024",
-    title: "Trust Bank supports Gambian farmers through NFSPMC partnership",
-    excerpt: "Trust Bank has partnered with the National Food Security Processing and Marketing Corporation to provide affordable financing for smallholder farmers.",
-    img: { bg: "from-green-700 to-green-900", icon: "🌾" },
+    tag: "News",
+    date: "26 Oct 2026",
+    title: "Blood Donation Campaign at Westfield Branch",
+    excerpt: "Trust Bank Gambia partnered with the National Blood Transfusion Service to hold a successful blood donation drive at our Westfield branch, supporting national healthcare.",
+    imgSrc: "/news/news-3.jpeg",
   },
   {
-    tag: "Notice",
-    date: "15 Jul 2024",
-    title: "CBG lowers ACP/ACH cheque threshold to GMD 50,000",
-    excerpt: "Following a Central Bank directive, Trust Bank has updated its cheque clearing process for all payments via ACP/ACH effective 15th July 2024.",
-    img: { bg: "from-[#E8A820] to-[#c88b0e]", icon: "📋" },
+    tag: "News",
+    date: "15 Oct 2026",
+    title: "Trust Bank ATM Services Now on GamSwitch National Network",
+    excerpt: "Trust Bank has integrated its ATM infrastructure with the GamSwitch national interbank network, enabling customers to access cash at any ATM across The Gambia.",
+    imgSrc: "/news/news-4.jpg",
   },
   {
-    tag: "Services",
-    date: "10 Oct 2024",
-    title: "Western Union remittances now available at all 12 branches",
-    excerpt: "Trust Bank customers across The Gambia can now send and receive Western Union transfers from any of our 12 branch locations nationwide.",
-    img: { bg: "from-purple-700 to-purple-900", icon: "🌍" },
+    tag: "News",
+    date: "26 Sep 2026",
+    title: "Delisting of Trust Bank PLC from the Ghana Stock Exchange",
+    excerpt: "Trust Bank PLC has completed the process of delisting from the Ghana Stock Exchange following a formal tender offer to shareholders. Trading on GSE has officially ceased.",
+    imgSrc: "/news/news-5.jpeg",
   },
   {
-    tag: "Security",
-    date: "1 Sep 2024",
-    title: "Chip & PIN ATM card rollout completed across all branches",
-    excerpt: "The migration from magnetic strip to chip and PIN technology is complete. Customers are urged to collect their new cards from their nearest branch.",
-    img: { bg: "from-slate-700 to-slate-900", icon: "🔒" },
+    tag: "News",
+    date: "22 Sep 2026",
+    title: "Paying Your UTG Tuition Just Got Easier",
+    excerpt: "Students at the University of The Gambia can now pay tuition fees directly through Trust Bank's branch network and mobile banking platform, making fee payment faster and more convenient.",
+    imgSrc: "/news/news-6.jpg",
   },
 ];
 
 const tagColors: Record<string, string> = {
+  Events:    "bg-[#E8A820]/15 text-[#8a5e00]",
+  News:      "bg-[#0A1F5C]/10 text-[#0A1F5C]",
   Corporate: "bg-[#0A1F5C]/10 text-[#0A1F5C]",
   Digital:   "bg-[#E8A820]/15 text-[#8a5e00]",
   Community: "bg-green-100 text-green-700",
@@ -126,12 +129,14 @@ export default function NewsCards() {
               className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex flex-col hover:-translate-y-1 hover:shadow-md transition-all duration-200 group"
             >
               {/* Image banner */}
-              <div className={`h-56 bg-gradient-to-br ${item.img.bg} flex items-center justify-center relative overflow-hidden`}>
-                {/* subtle pattern */}
-                <div className="absolute inset-0 opacity-10"
-                  style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
-                <span className="text-6xl relative z-10 drop-shadow-lg select-none">{item.img.icon}</span>
-                {/* gold accent bar bottom */}
+              <div className="h-56 relative overflow-hidden bg-gray-100">
+                <Image
+                  src={item.imgSrc}
+                  alt={item.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#E8A820]" />
               </div>
               <div className="p-6 flex flex-col flex-1">

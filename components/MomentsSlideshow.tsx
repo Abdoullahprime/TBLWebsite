@@ -5,12 +5,12 @@ import Image from "next/image";
 // Add photos to /public/moments/ and reference them here
 // Use any image format: .jpg .png .webp
 const moments = [
-  { src: "/moments/moment-1.jpg", alt: "Impact & Sustainability" },
-  { src: "/moments/moment-2.jpg", alt: "Digital Transformation" },
-  { src: "/moments/moment-3.jpg", alt: "Robust Growth & Stability" },
-  { src: "/moments/moment-4.jpg", alt: "Awards & Recognition" },
-  { src: "/moments/moment-5.jpg", alt: "Financial Inclusion" },
-  { src: "/moments/moment-6.jpg", alt: "Community Investment" },
+  { src: "/moments/moment-1.jpeg", alt: "Trust Bank at a Glance" },
+  { src: "/moments/moment-2.jpg",  alt: "MD Award Ceremony" },
+  { src: "/moments/moment-3.jpg",  alt: "Football Community Outreach" },
+  { src: "/moments/moment-4.jpg",  alt: "Military Partnership Event" },
+  { src: "/moments/moment-5.jpg",  alt: "CSR Community Support" },
+  { src: "/moments/moment-6.jpg",  alt: "GRA Partnership" },
 ];
 
 const PAGES = 2; // 6 items / 3 per page
