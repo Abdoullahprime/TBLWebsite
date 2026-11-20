@@ -1,11 +1,10 @@
 "use client";
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 
 const moments = [
   "bground.jpeg","awar4.jpg","award_mmd.jpg","award.jpg","award2.jpg","award-3.jpg",
   "award-dmd.jpg","award-md1.jpg","awar-football.jpg","awar-md.jpg",
-  "IMG-20250304-WA0112.jpg","mili1.jpg","mili2.jpg","mili3.jpg","mili4.jpg",
+  "IMG-20250304-WA0112.jpg","download.jpg","mili1.jpg","mili2.jpg","mili3.jpg","mili4.jpg",
   "sos.jpg","sos1.jpg","sos4.jpg","gra.jpg","gra1.jpg","gra2.jpg","gra4.jpg",
   "IMG-20250623-WA0035.jpg","image0.jpeg","image1.jpeg","image2.jpeg","image3.jpeg",
   "image4.jpeg","image5.jpeg","image6.jpeg","image7.jpeg","image8.jpeg","image9.jpeg",
@@ -13,15 +12,19 @@ const moments = [
   "image0_1.jpeg","image1_1.jpeg","image2_1.jpeg","image3_1.jpeg",
   "AM11_1.jpeg","AM11_2.jpeg","AM11_3.jpeg","AM11_4.jpeg",
   "AM11_5.jpeg","AM11_6.jpeg","AM11_7.jpeg","AM11_8.jpeg",
-  "PHOTO-2025-09-20-14-22-07.jpg","PHOTO-2025-09-20-14-22-08.jpg","PHOTO-2025-09-20-14-22-09.jpg",
-  "G.jpeg","GROUP.jpeg","TRUST.jpeg","GROUP.jpg","group.jpg",
-  "PHOTO-2025-11-30-19-34-20.jpg","PHOTO-2025-11-30-19-34-21.jpg","PHOTO-2025-11-30-19-34-22.jpg","PHOTO-2025-11-30-19-34-23.jpg",
+  "PHOTO-2025-09-20-14-22-07.jpg","PHOTO-2025-09-20-14-22-08_1.jpg","PHOTO-2025-09-20-14-22-08_2.jpg",
+  "PHOTO-2025-09-20-14-22-08_3.jpg","PHOTO-2025-09-20-14-22-08_4.jpg",
+  "PHOTO-2025-09-20-14-22-08.jpg","PHOTO-2025-09-20-14-22-09.jpg",
+  "download_1.jpg","download_2.jpg","download_3.jpg","download_4.jpg","download_10.jpg",
+  "G.jpeg","GROUP.jpeg","TRUST.jpeg","GROUP.jpg","PHOTO-2025-11-30-19-34-231.jpg","group.jpg",
+  "PHOTO-2025-11-30-19-34-20.jpg","PHOTO-2025-11-30-19-34-202.jpg",
+  "PHOTO-2025-11-30-19-34-21.jpg","PHOTO-2025-11-30-19-34-22.jpg","PHOTO-2025-11-30-19-34-23.jpg",
   "PHOTO-2025-11-29-09-24-45.jpg","PHOTO-2025-11-29-09-24-451.jpg","PHOTO-2025-11-29-09-24-452.jpg",
   "PHOTO-2025-11-29-09-24-461.jpg","PHOTO-2025-11-29-09-24-462.jpg","PHOTO-2025-11-29-09-24-463.jpg",
   "bundung_1.jpg","bun.jpg","bundung_88.jpg","bundung_99.jpg","bundung_0.jpg",
   "bundung_6.jpg","bundung_8.jpg","bundung_b.jpg","bundung_c.jpg",
-  "bundung_group.jpg","bundung_hn.jpg","bundung_n.jpg","bunj.jpg","bunn.jpg",
-  "aunty_fa.jpg","tanka_4.jpg","tanka_23.jpg","tanka_88.jpg","tanka_555.jpg",
+  "bundung_gif.jpg","bundung_group.jpg","bundung_hn.jpg","bundung_n.jpg","bunj.jpg","bunn.jpg",
+  "aunty_fa.jpg","tanka_4.jpg","tanka_23.jpg","tanka_66..jpg","tanka_88.jpg","tanka_555.jpg",
   "tanka_gift.jpg","tanka_head.jpg","tanka_nurs.jpg","tanka.jpg","tanka_fift_2.jpg","tanka_gift_3.jpg",
   "PHOTO-2025-12-09-12-37-444.jpg","PHOTO-2025-12-09-12-37-452.jpg","PHOTO-2025-12-09-12-37-453.jpg","PHOTO-2025-12-09-12-37-455.jpg",
   "PHOTO-2025-12-09-12-38-25.jpg","PHOTO-2025-12-09-12-38-252.jpg","PHOTO-2025-12-09-12-38-254.jpg",
@@ -39,7 +42,7 @@ const moments = [
   "SOMA.jpeg","BANSAG.jpeg",
   "IMG_7325.jpeg","IMG_7326.jpeg","IMG_7327.jpeg","IMG_7328.jpeg","IMG_7329.jpeg","IMG_7330.jpeg","IMG_7331.jpeg","IMG_7332.jpeg","IMG_7333.jpeg","IMG_7334.jpeg",
   "IMG_7852.jpeg","IMG_7853.jpeg","IMG_7854.jpeg","IMG_7855.jpeg","IMG_7856.jpeg","IMG_7857.jpeg","IMG_7858.jpeg","IMG_7859.jpeg","IMG_7860.jpeg","IMG_7861.jpeg",
-  "bore.jpg","gddddd.jpg",
+  "bore.jpg","gddddd.jpg","ddddddddddddddd.jpg",
   "PHOTO-2026-01-23-11-49-17.jpg","PHOTO-2026-01-23-11-49-172.jpg","awa.jpeg",
   "PHOTO-2026-01-23-11-49-181.jpg","PHOTO-2026-01-23-11-49-182.jpg",
   "PHOTO-2026-01-23-11-49-19.jpg","PHOTO-2026-01-23-11-49-191.jpg","PHOTO-2026-01-23-11-49-192.jpg",
@@ -135,15 +138,15 @@ export default function MomentsSlideshow() {
           {all.map((src, i) => (
             <div
               key={i}
-              className="relative flex-shrink-0 rounded-2xl overflow-hidden shadow-xl"
+              className="flex-shrink-0 rounded-2xl overflow-hidden shadow-xl"
               style={{ width: 300, height: 220 }}
             >
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src={`/moments/${src}`}
                 alt=""
-                fill
-                className="object-cover"
-                sizes="300px"
+                className="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
           ))}
