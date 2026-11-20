@@ -1,9 +1,9 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const navItems = [
-  { label: "Home", href: "#" },
+  { label: "Home", href: "/" },
   {
     label: "About Us",
     children: [
@@ -19,11 +19,11 @@ const navItems = [
   {
     label: "Services",
     children: [
-      { label: "Accounts", href: "#" },
-      { label: "Loans", href: "#" },
-      { label: "Digital Banking", href: "#" },
+      { label: "Accounts", href: "/services/accounts" },
+      { label: "Loans", href: "/services/loans/personal" },
+      { label: "Digital Banking", href: "/services/digital/online-banking" },
       { label: "International", href: "#" },
-      { label: "Exchange Rates", href: "#" },
+      { label: "Exchange Rates", href: "/services/other/exchange-rates" },
     ],
   },
   { label: "Careers", href: "/careers" },
@@ -33,22 +33,24 @@ const navItems = [
   { label: "Contact", href: "#" },
 ];
 
-function DropdownItem({ item }: { item: typeof navItems[0] }) {
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+type NavItem = typeof navItems[0];
 
-  useEffect(() => {
-    function handleClick(e: MouseEvent) {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
-    }
-    document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
-  }, []);
+function DropdownItem({
+  item,
+  activeMenu,
+  setActiveMenu,
+}: {
+  item: NavItem;
+  activeMenu: string | null;
+  setActiveMenu: (label: string | null) => void;
+}) {
+  const open = activeMenu === item.label;
 
   if (!item.children) {
     return (
       <a
         href={item.href}
+        onMouseEnter={() => setActiveMenu(null)}
         className="text-sm font-medium text-gray-700 hover:text-[#0A1F5C] hover:bg-gray-100 px-3 py-2 rounded-lg transition-colors whitespace-nowrap"
       >
         {item.label}
@@ -57,22 +59,27 @@ function DropdownItem({ item }: { item: typeof navItems[0] }) {
   }
 
   return (
-    <div ref={ref} className="relative">
+    <div
+      className="relative"
+      onMouseEnter={() => setActiveMenu(item.label)}
+    >
       <button
-        onClick={() => setOpen(o => !o)}
-        onMouseEnter={() => setOpen(true)}
-        className="text-sm font-medium text-gray-700 hover:text-[#0A1F5C] hover:bg-gray-100 px-3 py-2 rounded-lg transition-colors flex items-center gap-1 whitespace-nowrap"
+        onClick={() => setActiveMenu(open ? null : item.label)}
+        className={`text-sm font-medium px-3 py-2 rounded-lg transition-colors flex items-center gap-1 whitespace-nowrap ${
+          open ? "text-[#0A1F5C] bg-gray-100" : "text-gray-700 hover:text-[#0A1F5C] hover:bg-gray-100"
+        }`}
       >
         {item.label}
-        <svg className={`w-3 h-3 transition-transform ${open ? "rotate-180" : ""}`} viewBox="0 0 12 12" fill="none">
+        <svg
+          className={`w-3 h-3 transition-transform ${open ? "rotate-180" : ""}`}
+          viewBox="0 0 12 12" fill="none"
+        >
           <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </button>
+
       {open && (
-        <div
-          className="absolute top-full left-0 mt-1 bg-white border border-gray-200 rounded-xl shadow-lg py-1 z-50 min-w-[200px]"
-          onMouseLeave={() => setOpen(false)}
-        >
+        <div className="absolute top-full left-0 mt-1 bg-white border border-gray-200 rounded-xl shadow-lg py-1 z-50 min-w-[220px]">
           {item.children.map(child => (
             <a
               key={child.label}
@@ -90,8 +97,9 @@ function DropdownItem({ item }: { item: typeof navItems[0] }) {
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -111,15 +119,24 @@ export default function Navbar() {
           <Image src="/logo.jpg" alt="Trust Bank Gambia" width={180} height={52} className="h-11 w-auto object-contain" priority />
         </a>
 
-        {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-0.5">
+        {/* Desktop nav — mouseLeave on the whole nav closes all dropdowns */}
+        <nav
+          className="hidden lg:flex items-center gap-0.5"
+          onMouseLeave={() => setActiveMenu(null)}
+        >
           {navItems.map(item => (
-            <DropdownItem key={item.label} item={item} />
+            <DropdownItem
+              key={item.label}
+              item={item}
+              activeMenu={activeMenu}
+              setActiveMenu={setActiveMenu}
+            />
           ))}
           <a
             href="https://ibank.tblgambia.com/#/acceuil"
             target="_blank"
             rel="noopener noreferrer"
+            onMouseEnter={() => setActiveMenu(null)}
             className="ml-3 bg-[#E8A820] text-[#0A1F5C] font-bold text-sm px-5 py-2.5 rounded-lg hover:bg-[#F5C842] transition-colors whitespace-nowrap"
           >
             Online Banking →
@@ -129,7 +146,7 @@ export default function Navbar() {
         {/* Mobile hamburger */}
         <button
           className="lg:hidden p-2 rounded-lg hover:bg-gray-100"
-          onClick={() => setOpen(!open)}
+          onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
           <span className="block w-5 h-0.5 bg-gray-700 mb-1" />
@@ -139,7 +156,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile menu */}
-      {open && (
+      {mobileOpen && (
         <div className="lg:hidden border-t border-gray-100 bg-white px-5 pb-4 max-h-[80vh] overflow-y-auto">
           {navItems.map(item => (
             <div key={item.label}>

@@ -235,31 +235,36 @@ export default function BranchesPage() {
             {branches.filter((b) => !b.isHQ).map((branch) => (
               <div
                 key={branch.name}
-                className="border border-gray-100 rounded-2xl p-6 hover:border-[#E8A820] hover:shadow-md transition-all group"
+                className="bg-[#0A1F5C] rounded-2xl p-6 hover:bg-[#0d2870] hover:shadow-xl transition-all group relative overflow-hidden"
               >
-                <div className="flex items-start gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-[#EEF2FF] flex items-center justify-center flex-shrink-0 group-hover:bg-[#E8A820]/15 transition-colors text-[#0A1F5C]">
-                    <PinIcon />
-                  </div>
-                  <div>
-                    <h3 className="font-[family-name:var(--font-sora)] font-bold text-[#0A1F5C] text-sm leading-snug group-hover:text-[#E8A820] transition-colors">
-                      {branch.name}
-                    </h3>
-                    <p className="text-xs text-[#E8A820] font-semibold mt-0.5">{branch.region}</p>
-                  </div>
-                </div>
-                <p className="text-sm text-gray-500 mb-3">{branch.address}</p>
-                <div className="space-y-1.5 text-xs text-gray-500">
-                  <div className="flex items-center gap-1.5">
-                    <PhoneIcon />
-                    <span>{branch.phone}</span>
-                  </div>
-                  {branch.fax && (
-                    <div className="flex items-center gap-1.5">
-                      <FaxIcon />
-                      <span>{branch.fax}</span>
+                {/* subtle glow */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity pointer-events-none"
+                  style={{ backgroundImage: "radial-gradient(circle at 80% 20%, #E8A820 0%, transparent 60%)" }} />
+                <div className="relative z-10">
+                  <div className="flex items-start gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 text-[#E8A820]">
+                      <PinIcon />
                     </div>
-                  )}
+                    <div>
+                      <h3 className="font-[family-name:var(--font-sora)] font-bold text-white text-sm leading-snug">
+                        {branch.name}
+                      </h3>
+                      <p className="text-xs text-[#E8A820] font-semibold mt-0.5">{branch.region}</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-white/60 mb-4">{branch.address}</p>
+                  <div className="space-y-1.5 text-xs text-white/70">
+                    <div className="flex items-center gap-1.5">
+                      <PhoneIcon />
+                      <span>{branch.phone}</span>
+                    </div>
+                    {branch.fax && (
+                      <div className="flex items-center gap-1.5">
+                        <FaxIcon />
+                        <span>{branch.fax}</span>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}
