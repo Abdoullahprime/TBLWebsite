@@ -7,8 +7,8 @@ const navItems = [
   {
     label: "About Us",
     children: [
-      { label: "Who We Are", href: "#" },
-      { label: "Branches", href: "#" },
+      { label: "Who We Are", href: "/about" },
+      { label: "Branches", href: "/about/branches" },
       { label: "Compliance Policies", href: "#" },
       { label: "Corporate Social Responsibility", href: "#" },
       { label: "Subsidiaries", href: "#" },
