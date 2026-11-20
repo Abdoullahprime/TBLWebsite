@@ -8,6 +8,7 @@ import WhyBankWithUs from "@/components/WhyBankWithUs";
 import MobileBanking from "@/components/MobileBanking";
 import ExchangeRates from "@/components/ExchangeRates";
 import NewsCards from "@/components/NewsCards";
+import ImportantLinks from "@/components/ImportantLinks";
 import Partners from "@/components/Partners";
 import Footer from "@/components/Footer";
 
@@ -25,6 +26,7 @@ export default function Home() {
         <MobileBanking />
         <ExchangeRates />
         <NewsCards />
+        <ImportantLinks />
         <Partners />
       </main>
       <Footer />
