@@ -1,3 +1,6 @@
+"use client";
+import { useState } from "react";
+
 const links = [
   { title: "Interim Dividend and Closure of Register",           url: "https://trustbankgambia.com/api/get-pdf/INTERIM_DIVIDEND_PAYMENT.pdf",                                                                       tag: "Investor" },
   { title: "Trust Bank Delisting Announcement",                  url: "https://trustbankgambia.com/api/get-pdf/Trust_Bank_Delisting_announcement_1.pdf",                                                             tag: "Investor" },
@@ -11,6 +14,9 @@ const links = [
   { title: "Risk Appetite Statement",                            url: "https://trustbankgambia.com/api/get-pdf/RISK-APPETITE-STATEMENT-ACCOUNT-OPERATION-approved-19th-December-2024-1.pdf",                         tag: "Corporate" },
   { title: "Upgraded Mobile App and Online Banking Platforms",   url: "https://trustbankgambia.com/api/get-pdf/MOBILE-APP-MESSAGE.pdf",                                                                               tag: "Digital" },
 ];
+
+const PER_PAGE = 6;
+const PAGES = Math.ceil(links.length / PER_PAGE);
 
 const tagStyle: Record<string, string> = {
   Investor:  "bg-[#0A1F5C]/10 text-[#0A1F5C]",
@@ -41,6 +47,16 @@ function DownloadIcon() {
 }
 
 export default function ImportantLinks() {
+  const [page, setPage] = useState(0);
+  const [animating, setAnimating] = useState(false);
+
+  function goTo(i: number) {
+    setAnimating(true);
+    setTimeout(() => { setPage(i); setAnimating(false); }, 300);
+  }
+
+  const visible = links.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE);
+
   return (
     <section className="bg-[#F5F5F5] py-16">
       <div className="max-w-6xl mx-auto px-5">
@@ -54,8 +70,14 @@ export default function ImportantLinks() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {links.map((link) => (
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          style={{
+            opacity: animating ? 0 : 1,
+            transition: "opacity 0.3s ease",
+          }}
+        >
+          {visible.map((link) => (
             <a
               key={link.url}
               href={link.url}
@@ -63,12 +85,9 @@ export default function ImportantLinks() {
               rel="noopener noreferrer"
               className="group bg-white rounded-2xl border border-gray-200 px-5 py-5 flex items-start gap-4 hover:border-[#E8A820] hover:shadow-md transition-all duration-200 hover:-translate-y-0.5"
             >
-              {/* PDF icon bubble */}
               <div className="w-10 h-10 rounded-xl bg-[#0A1F5C]/8 flex items-center justify-center flex-shrink-0 text-[#0A1F5C] group-hover:bg-[#E8A820]/15 group-hover:text-[#E8A820] transition-colors">
                 <PdfIcon />
               </div>
-
-              {/* Text */}
               <div className="flex-1 min-w-0">
                 <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full mb-2 inline-block ${tagStyle[link.tag] ?? "bg-gray-100 text-gray-500"}`}>
                   {link.tag}
@@ -77,12 +96,21 @@ export default function ImportantLinks() {
                   {link.title}
                 </p>
               </div>
-
-              {/* Download arrow */}
               <div className="flex-shrink-0 text-gray-300 group-hover:text-[#E8A820] transition-colors mt-1">
                 <DownloadIcon />
               </div>
             </a>
+          ))}
+        </div>
+
+        {/* Dot pager */}
+        <div className="flex justify-center gap-3 mt-8">
+          {Array.from({ length: PAGES }).map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              className={`rounded-full transition-all duration-300 ${i === page ? "w-8 h-3 bg-[#E8A820]" : "w-3 h-3 bg-gray-300 hover:bg-gray-400"}`}
+            />
           ))}
         </div>
       </div>
