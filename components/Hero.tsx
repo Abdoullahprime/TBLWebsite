@@ -3,26 +3,26 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const slides = [
-  { super: "Welcome To Trust Bank",          gold: "Stay In Control Of",          white: "Your Finances",                img: "/hero/hero-tb2023.jpg" },
-  { super: "Explore Our Saving Plans",        gold: "Grow Your",                   white: "Savings Smartly",              img: "/hero/hero-ebanking1.jpg" },
-  { super: "Send money locally & globally",   gold: "Business Accounts",           white: "Money Transfers",              img: "/hero/hero-corporate.jpg" },
-  { super: "Send money locally & globally",   gold: "International Banking",        white: "Money Transfers",              img: "/hero/hero-international.jpg" },
-  { super: "Send money locally & globally",   gold: "International Banking",        white: "Money Transfers",              img: "/hero/hero-retail.jpg" },
-  { super: "Send money locally & globally",   gold: "Quick & Easy",                white: "Money Transfers",              img: "/hero/hero-ebanking.jpg" },
-  { super: "Boosted Operational Efficiency",  gold: "Strategic Outlook",           white: "Deeper Digital Transformation", img: "/hero/hero-agm1.jpeg" },
-  { super: "CSR Support",                     gold: "Impact & Sustainability",      white: "Gender Empowerment",           img: "/hero/hero-agm2.jpeg" },
-  { super: "Banking and Cybersecurity",       gold: "Digital Transformation",      white: "Enhanced Digital Systems",     img: "/hero/hero-agm3.jpeg" },
-  { super: "Explore Our Saving Plans",        gold: "Grow Your",                   white: "Savings Smartly",              img: "/hero/hero-agm4.jpeg" },
-  { super: "Explore Our Saving Plans",        gold: "Grow Your",                   white: "Savings Smartly",              img: "/hero/hero-agm5.jpeg" },
-  { super: "Send money locally & globally",   gold: "Business Accounts",           white: "Money Transfers",              img: "/hero/hero-agm6.jpeg" },
-  { super: "Send money locally & globally",   gold: "International Banking",        white: "Money Transfers",              img: "/hero/hero-agm7.jpeg" },
-  { super: "CSR Support",                     gold: "Impact & Sustainability",      white: "Gender Empowerment",           img: "/hero/hero-agm.jpeg" },
-  { super: "Banking and Cybersecurity",       gold: "Digital Transformation",      white: "Enhanced Digital Systems",     img: "/hero/hero-agm8.jpeg" },
-  { super: "Send money locally & globally",   gold: "International Banking",        white: "Money Transfers",              img: "/hero/hero-md.jpeg" },
-  { super: "Send money locally & globally",   gold: "International Banking",        white: "Money Transfers",              img: "/hero/hero-1.jpeg" },
-  { super: "Send money locally & globally",   gold: "International Banking",        white: "Money Transfers",              img: "/hero/hero-2.jpeg" },
-  { super: "Explore Our Saving Plans",        gold: "Grow Your",                   white: "Savings Smartly",              img: "/hero/hero-3.jpeg" },
-  { super: "Explore Our Saving Plans",        gold: "Grow Your",                   white: "Savings Smartly",              img: "/hero/hero-4.jpeg" },
+  { super: "Welcome To Trust Bank",           gold: "Stay In Control Of",           white: "Your Finances",                 img: "/hero/hero-tb2023.jpg" },
+  { super: "Explore Our Saving Plans",         gold: "Grow Your",                    white: "Savings Smartly",               img: "/hero/hero-ebanking1.jpg" },
+  { super: "Send money locally & globally",    gold: "Business Accounts",            white: "Money Transfers",               img: "/hero/hero-corporate.jpg" },
+  { super: "Send money locally & globally",    gold: "International Banking",         white: "Money Transfers",               img: "/hero/hero-international.jpg" },
+  { super: "Send money locally & globally",    gold: "International Banking",         white: "Money Transfers",               img: "/hero/hero-retail.jpg" },
+  { super: "Send money locally & globally",    gold: "Quick & Easy",                 white: "Money Transfers",               img: "/hero/hero-ebanking.jpg" },
+  { super: "Boosted Operational Efficiency",   gold: "Strategic Outlook",            white: "Deeper Digital Transformation", img: "/hero/hero-agm1.jpeg" },
+  { super: "CSR Support",                      gold: "Impact & Sustainability",       white: "Gender Empowerment",            img: "/hero/hero-agm2.jpeg" },
+  { super: "Banking and Cybersecurity",        gold: "Digital Transformation",       white: "Enhanced Digital Systems",      img: "/hero/hero-agm3.jpeg" },
+  { super: "Explore Our Saving Plans",         gold: "Grow Your",                    white: "Savings Smartly",               img: "/hero/hero-agm4.jpeg" },
+  { super: "Explore Our Saving Plans",         gold: "Grow Your",                    white: "Savings Smartly",               img: "/hero/hero-agm5.jpeg" },
+  { super: "Send money locally & globally",    gold: "Business Accounts",            white: "Money Transfers",               img: "/hero/hero-agm6.jpeg" },
+  { super: "Send money locally & globally",    gold: "International Banking",         white: "Money Transfers",               img: "/hero/hero-agm7.jpeg" },
+  { super: "CSR Support",                      gold: "Impact & Sustainability",       white: "Gender Empowerment",            img: "/hero/hero-agm.jpeg" },
+  { super: "Banking and Cybersecurity",        gold: "Digital Transformation",       white: "Enhanced Digital Systems",      img: "/hero/hero-agm8.jpeg" },
+  { super: "Send money locally & globally",    gold: "International Banking",         white: "Money Transfers",               img: "/hero/hero-md.jpeg" },
+  { super: "Send money locally & globally",    gold: "International Banking",         white: "Money Transfers",               img: "/hero/hero-1.jpeg" },
+  { super: "Send money locally & globally",    gold: "International Banking",         white: "Money Transfers",               img: "/hero/hero-2.jpeg" },
+  { super: "Explore Our Saving Plans",         gold: "Grow Your",                    white: "Savings Smartly",               img: "/hero/hero-3.jpeg" },
+  { super: "Explore Our Saving Plans",         gold: "Grow Your",                    white: "Savings Smartly",               img: "/hero/hero-4.jpeg" },
 ];
 
 export default function Hero() {
@@ -45,7 +45,13 @@ export default function Hero() {
   const slide = slides[current];
 
   return (
-    <section className="bg-[#0A1F5C] overflow-hidden relative border-b border-[#0a1f5c]" style={{ minHeight: "560px" }}>
+    <section className="bg-white overflow-hidden relative border-b border-gray-100" style={{ minHeight: "560px" }}>
+      {/* Subtle radial glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse 50% 70% at 85% 50%, rgba(232,168,32,0.07) 0%, transparent 65%)" }}
+      />
+
       {/* Right-half full-bleed image (desktop only) */}
       <div className="absolute inset-y-0 right-0 w-1/2 hidden md:block">
         <div
@@ -60,52 +66,53 @@ export default function Hero() {
             sizes="50vw"
             priority
           />
-          {/* left-edge fade into navy */}
-          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0A1F5C] to-transparent" />
+          {/* left-edge fade into white */}
+          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent" />
         </div>
       </div>
 
       {/* Left content */}
       <div className="relative z-10 max-w-6xl mx-auto px-5 py-20">
         <div className="md:w-1/2 md:pr-10">
-          {/* Supertitle */}
-          <div
-            className="font-semibold text-white text-lg md:text-xl mb-4 transition-all duration-350"
-            style={{ opacity: animating ? 0 : 1, transform: animating ? "translateY(8px)" : "translateY(0)" }}
-          >
-            {slide.super}
+
+          {/* Trusted pill */}
+          <div className="inline-flex items-center gap-2 bg-[#E8A820]/10 border border-[#E8A820]/30 rounded-full px-4 py-1.5 text-xs font-bold text-[#8a5e00] tracking-widest uppercase mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E8A820] animate-pulse" />
+            Trusted Since 1997 · Central Bank Licensed
           </div>
 
-          {/* Gold decorative lines */}
-          <div className="mb-4">
-            <div className="w-7 h-0.5 bg-[#E8A820]" />
-            <div className="w-[17px] h-0.5 mt-2.5 ml-2.5 bg-[#E8A820]" />
-          </div>
-
-          {/* Headline */}
+          {/* Animated headline */}
           <div
-            className="font-[family-name:var(--font-sora)] font-bold text-3xl md:text-5xl mb-10 leading-tight transition-all duration-350"
+            className="font-[family-name:var(--font-sora)] text-4xl md:text-5xl font-bold leading-[1.12] mb-5 transition-all duration-350"
             style={{ opacity: animating ? 0 : 1, transform: animating ? "translateY(12px)" : "translateY(0)" }}
           >
             <span className="text-[#E8A820]">{slide.gold}<br /></span>
-            <span className="text-white">{slide.white}</span>
+            <span className="text-[#0A1F5C]">{slide.white}</span>
           </div>
 
+          {/* Animated sub */}
+          <p
+            className="text-lg text-gray-500 max-w-md mb-9 transition-all duration-350"
+            style={{ opacity: animating ? 0 : 1, transform: animating ? "translateY(8px)" : "translateY(0)" }}
+          >
+            {slide.super}
+          </p>
+
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-10">
+          <div className="flex gap-3 flex-wrap mb-8">
             <a
               href="https://ibank.tblgambia.com/#/acceuil"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center w-full sm:w-[185px] h-12 bg-[#E8A820] rounded-[64px] text-[#0A1F5C] font-semibold text-base hover:bg-[#F5C842] transition-colors shadow"
+              className="bg-[#E8A820] text-[#0A1F5C] font-bold px-7 py-3.5 rounded-xl hover:bg-[#F5C842] transition-all hover:-translate-y-0.5 shadow-[0_4px_16px_rgba(232,168,32,0.35)]"
             >
-              Online Banking
+              Open an Account
             </a>
             <a
               href="#"
-              className="inline-flex items-center justify-center w-full sm:w-[185px] h-12 bg-[#E8A820] rounded-[64px] text-[#0A1F5C] font-semibold text-base hover:bg-[#F5C842] transition-colors shadow"
+              className="border border-gray-200 text-[#0A1F5C] font-semibold px-7 py-3.5 rounded-xl hover:border-[#0A1F5C] hover:bg-gray-50 transition-all"
             >
-              Check ATMs
+              Explore Services
             </a>
           </div>
 
@@ -115,7 +122,7 @@ export default function Hero() {
               <button
                 key={i}
                 onClick={() => { if (i !== current) advance(i - current); }}
-                className={`rounded-full transition-all duration-300 ${i === current ? "w-6 h-2.5 bg-[#E8A820]" : "w-2.5 h-2.5 bg-white/30 hover:bg-white/60"}`}
+                className={`rounded-full transition-all duration-300 ${i === current ? "w-6 h-2.5 bg-[#E8A820]" : "w-2.5 h-2.5 bg-gray-200 hover:bg-gray-300"}`}
               />
             ))}
           </div>
