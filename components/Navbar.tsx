@@ -26,7 +26,7 @@ const navItems = [
       { label: "Exchange Rates", href: "#" },
     ],
   },
-  { label: "Careers", href: "#" },
+  { label: "Careers", href: "/careers" },
   { label: "Fraud", href: "#" },
   { label: "Downloads", href: "#" },
   { label: "News", href: "#" },
