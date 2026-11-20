@@ -74,22 +74,22 @@ export default function MobileBankingPage() {
           <div className="relative min-h-[300px] flex items-end justify-center gap-4 px-6 pb-0 overflow-hidden">
             {/* Phone 1 */}
             <div className="relative flex-shrink-0 self-end" style={{ width: 120, height: 240 }}>
-              {/* Phone frame behind screen content */}
-              <div className="absolute inset-0" style={{ zIndex: 1 }}>
-                <Image src="/phone-mockup.png" alt="" fill className="object-contain" />
+              {/* Screen content clipped to phone screen area — positioned inside the bezel */}
+              <div className="absolute rounded-[12px] overflow-hidden" style={{ top: "5%", left: "12%", right: "12%", bottom: "5%", zIndex: 1 }}>
+                <Image src="/app-screen-1.png" alt="Trust Bank app — Accounts" fill sizes="120px" className="object-cover object-top" />
               </div>
-              {/* Screen content sits inside the frame's screen area */}
-              <div className="absolute rounded-[14px] overflow-hidden" style={{ top: "9%", left: "8%", right: "8%", bottom: "8%", zIndex: 2 }}>
-                <Image src="/app-screen-1.png" alt="Trust Bank app — Accounts" fill className="object-cover object-top" />
+              {/* Phone frame on top — its bezel covers the edges of the screen div */}
+              <div className="absolute inset-0" style={{ zIndex: 2 }}>
+                <Image src="/phone-mockup.png" alt="" fill sizes="120px" className="object-contain" />
               </div>
             </div>
             {/* Phone 2 — taller */}
             <div className="relative flex-shrink-0 self-end mb-3" style={{ width: 130, height: 268 }}>
-              <div className="absolute inset-0" style={{ zIndex: 1 }}>
-                <Image src="/phone-mockup.png" alt="" fill className="object-contain" />
+              <div className="absolute rounded-[12px] overflow-hidden" style={{ top: "5%", left: "12%", right: "12%", bottom: "5%", zIndex: 1 }}>
+                <Image src="/app-screen-2.png" alt="Trust Bank app — Banking" fill sizes="130px" className="object-cover object-top" />
               </div>
-              <div className="absolute rounded-[14px] overflow-hidden" style={{ top: "9%", left: "8%", right: "8%", bottom: "8%", zIndex: 2 }}>
-                <Image src="/app-screen-2.png" alt="Trust Bank app — Banking" fill className="object-cover object-top" />
+              <div className="absolute inset-0" style={{ zIndex: 2 }}>
+                <Image src="/phone-mockup.png" alt="" fill sizes="130px" className="object-contain" />
               </div>
             </div>
           </div>

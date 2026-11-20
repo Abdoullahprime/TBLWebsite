@@ -49,7 +49,7 @@ export default function AwardsPage() {
             {awards.map((award) => (
               <div key={award.title} className="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-md transition-all">
                 <div className="relative h-48 bg-[#0A1F5C]">
-                  <Image src={award.img} alt={award.title} fill className="object-cover object-top opacity-90" />
+                  <Image src={award.img} alt={award.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-top opacity-90" priority />
                 </div>
                 <div className="p-6">
                   <div className="flex items-center gap-2 mb-2 flex-wrap">
@@ -70,7 +70,7 @@ export default function AwardsPage() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             {galleryImages.map((img) => (
               <div key={img.src} className="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#0A1F5C]">
-                <Image src={img.src} alt={img.alt} fill className="object-cover hover:scale-105 transition-transform duration-500" />
+                <Image src={img.src} alt={img.alt} fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover hover:scale-105 transition-transform duration-500" />
               </div>
             ))}
           </div>

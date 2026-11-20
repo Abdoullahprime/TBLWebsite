@@ -102,7 +102,7 @@ export default function NewsPage() {
               <div className={`relative h-44 flex-shrink-0 ${!item.img ? "flex items-center justify-center" : ""}`}
                 style={{ backgroundColor: item.bgColor ?? "#F7F8FC" }}>
                 {item.img ? (
-                  <Image src={item.img} alt={item.title} fill className="object-cover object-top" />
+                  <Image src={item.img} alt={item.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover object-top" />
                 ) : (
                   <div className="p-6 w-full">
                     <p className="text-white/20 text-5xl font-bold font-[family-name:var(--font-sora)] leading-none uppercase tracking-tight line-clamp-3">

@@ -23,6 +23,7 @@ export default function MobileBanking() {
                     src="/app-screen-2.png"
                     alt="Trust Bank App Banking Screen"
                     fill
+                    sizes="200px"
                     className="object-cover object-top"
                     style={{ objectPosition: "top", height: "112%" }}
                   />
@@ -44,6 +45,7 @@ export default function MobileBanking() {
                     src="/app-screen-1.png"
                     alt="Trust Bank App Accounts Screen"
                     fill
+                    sizes="220px"
                     className="object-cover object-top"
                     style={{ objectPosition: "top", height: "112%" }}
                   />
