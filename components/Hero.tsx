@@ -68,6 +68,8 @@ export default function Hero() {
           />
           {/* left-edge fade into white */}
           <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent" />
+          {/* right-edge fade */}
+          <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white/50 to-transparent" />
         </div>
       </div>
 
