@@ -92,15 +92,16 @@ export default function MomentsSlideshow() {
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
+    const el = track;
     let frame: number;
     let pos = 0;
     const speed = 0.5; // px per frame
 
     function tick() {
       pos += speed;
-      const half = track.scrollWidth / 2;
+      const half = el.scrollWidth / 2;
       if (pos >= half) pos -= half;
-      track.style.transform = `translateX(-${pos}px)`;
+      el.style.transform = `translateX(-${pos}px)`;
       frame = requestAnimationFrame(tick);
     }
     frame = requestAnimationFrame(tick);
