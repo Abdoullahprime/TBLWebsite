@@ -19,14 +19,9 @@ export default function MobileBanking() {
                 <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-20 h-5 bg-[#0A1F5C] rounded-full z-10" />
                 {/* Screen — crop bottom 12% to hide Android nav */}
                 <div className="absolute inset-0 overflow-hidden">
-                  <Image
-                    src="/app-screen-2.png"
-                    alt="Trust Bank App Banking Screen"
-                    fill
-                    sizes="200px"
-                    className="object-cover object-top"
-                    style={{ objectPosition: "top", height: "112%" }}
-                  />
+                  <div className="absolute inset-0" style={{ bottom: "-12%" }}>
+                    <Image src="/app-screen-2.png" alt="Trust Bank App Banking Screen" fill sizes="200px" className="object-cover object-top" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -41,14 +36,9 @@ export default function MobileBanking() {
                 <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-5 bg-[#0A1F5C] rounded-full z-10" />
                 {/* Screen — crop bottom 12% to hide Android nav */}
                 <div className="absolute inset-0 overflow-hidden">
-                  <Image
-                    src="/app-screen-1.png"
-                    alt="Trust Bank App Accounts Screen"
-                    fill
-                    sizes="220px"
-                    className="object-cover object-top"
-                    style={{ objectPosition: "top", height: "112%" }}
-                  />
+                  <div className="absolute inset-0" style={{ bottom: "-12%" }}>
+                    <Image src="/app-screen-1.png" alt="Trust Bank App Accounts Screen" fill sizes="220px" className="object-cover object-top" />
+                  </div>
                 </div>
                 {/* Home bar (iPhone style) */}
                 <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-24 h-1 rounded-full bg-white/40 z-10" />
