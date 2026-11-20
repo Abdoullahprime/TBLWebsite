@@ -6,7 +6,7 @@ const stats = [
 
 export default function RatesStrip() {
   return (
-    <div className="bg-[#E8A820] pt-12 pb-20">
+    <div className="bg-[#E8A820] pt-12 pb-28">
       <div className="max-w-6xl mx-auto px-5">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           {stats.map((s, i) => (

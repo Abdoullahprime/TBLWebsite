@@ -44,7 +44,7 @@ const links = [
 export default function QuickLinks() {
   return (
     /* negative margin pulls card up to overlap the gold band above */
-    <div className="relative z-10 -mt-10 pb-6 px-5">
+    <div className="relative z-10 -mt-14 pb-6 px-5">
       <div className="max-w-6xl mx-auto">
         <div className="bg-white border border-gray-200 rounded-2xl px-8 py-6 shadow-lg">
           <div className="flex items-center justify-around gap-4 flex-wrap divide-x divide-gray-200">
