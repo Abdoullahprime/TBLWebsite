@@ -1,12 +1,97 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
-const links = ["Home", "About", "Services", "Loans", "News", "Contact"];
+const navItems = [
+  { label: "Home", href: "#" },
+  {
+    label: "About Us",
+    children: [
+      { label: "Who We Are", href: "#" },
+      { label: "Branches", href: "#" },
+      { label: "Compliance Policies", href: "#" },
+      { label: "Corporate Social Responsibility", href: "#" },
+      { label: "Subsidiaries", href: "#" },
+      { label: "Recognition and Awards", href: "#" },
+      { label: "AGM", href: "#" },
+    ],
+  },
+  {
+    label: "Services",
+    children: [
+      { label: "Accounts", href: "#" },
+      { label: "Loans", href: "#" },
+      { label: "Digital Banking", href: "#" },
+      { label: "International", href: "#" },
+      { label: "Exchange Rates", href: "#" },
+    ],
+  },
+  { label: "Careers", href: "#" },
+  { label: "Fraud", href: "#" },
+  { label: "Downloads", href: "#" },
+  { label: "News", href: "#" },
+  { label: "Contact", href: "#" },
+];
+
+function DropdownItem({ item }: { item: typeof navItems[0] }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
+  if (!item.children) {
+    return (
+      <a
+        href={item.href}
+        className="text-sm font-medium text-gray-700 hover:text-[#0A1F5C] hover:bg-gray-100 px-3 py-2 rounded-lg transition-colors whitespace-nowrap"
+      >
+        {item.label}
+      </a>
+    );
+  }
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        onClick={() => setOpen(o => !o)}
+        onMouseEnter={() => setOpen(true)}
+        className="text-sm font-medium text-gray-700 hover:text-[#0A1F5C] hover:bg-gray-100 px-3 py-2 rounded-lg transition-colors flex items-center gap-1 whitespace-nowrap"
+      >
+        {item.label}
+        <svg className={`w-3 h-3 transition-transform ${open ? "rotate-180" : ""}`} viewBox="0 0 12 12" fill="none">
+          <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </button>
+      {open && (
+        <div
+          className="absolute top-full left-0 mt-1 bg-white border border-gray-200 rounded-xl shadow-lg py-1 z-50 min-w-[200px]"
+          onMouseLeave={() => setOpen(false)}
+        >
+          {item.children.map(child => (
+            <a
+              key={child.label}
+              href={child.href}
+              className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[#0A1F5C] hover:text-white transition-colors"
+            >
+              {child.label}
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -20,26 +105,22 @@ export default function Navbar() {
         scrolled ? "shadow-md" : ""
       }`}
     >
-      <div className="max-w-6xl mx-auto px-5 flex items-center justify-between py-4">
+      <div className="max-w-7xl mx-auto px-5 flex items-center justify-between py-3">
         {/* Logo */}
-        <a href="/" className="flex items-center no-underline">
-          <Image src="/logo.jpg" alt="Trust Bank Gambia" width={180} height={52} className="h-12 w-auto object-contain" priority />
+        <a href="/" className="flex items-center no-underline flex-shrink-0">
+          <Image src="/logo.jpg" alt="Trust Bank Gambia" width={180} height={52} className="h-11 w-auto object-contain" priority />
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-1">
-          {links.map((link) => (
-            <a
-              key={link}
-              href="#"
-              className="text-sm font-medium text-gray-700 hover:text-[#0A1F5C] hover:bg-gray-100 px-3 py-2 rounded-lg transition-colors"
-            >
-              {link}
-            </a>
+        <nav className="hidden lg:flex items-center gap-0.5">
+          {navItems.map(item => (
+            <DropdownItem key={item.label} item={item} />
           ))}
           <a
-            href="#"
-            className="ml-2 bg-[#E8A820] text-[#0A1F5C] font-bold text-sm px-5 py-2.5 rounded-lg hover:bg-[#F5C842] transition-colors"
+            href="https://ibank.tblgambia.com/#/acceuil"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-3 bg-[#E8A820] text-[#0A1F5C] font-bold text-sm px-5 py-2.5 rounded-lg hover:bg-[#F5C842] transition-colors whitespace-nowrap"
           >
             Online Banking →
           </a>
@@ -47,7 +128,7 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden p-2 rounded-lg hover:bg-gray-100"
+          className="lg:hidden p-2 rounded-lg hover:bg-gray-100"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -59,13 +140,43 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden border-t border-gray-100 bg-white px-5 pb-4">
-          {links.map((link) => (
-            <a key={link} href="#" className="block py-2 text-sm text-gray-700 hover:text-[#0A1F5C]">
-              {link}
-            </a>
+        <div className="lg:hidden border-t border-gray-100 bg-white px-5 pb-4 max-h-[80vh] overflow-y-auto">
+          {navItems.map(item => (
+            <div key={item.label}>
+              {item.children ? (
+                <>
+                  <button
+                    className="w-full text-left flex items-center justify-between py-2.5 text-sm font-medium text-gray-700 border-b border-gray-100"
+                    onClick={() => setMobileExpanded(mobileExpanded === item.label ? null : item.label)}
+                  >
+                    {item.label}
+                    <svg className={`w-3 h-3 transition-transform ${mobileExpanded === item.label ? "rotate-180" : ""}`} viewBox="0 0 12 12" fill="none">
+                      <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </button>
+                  {mobileExpanded === item.label && (
+                    <div className="pl-4 py-1">
+                      {item.children.map(child => (
+                        <a key={child.label} href={child.href} className="block py-2 text-sm text-gray-600 hover:text-[#0A1F5C]">
+                          {child.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </>
+              ) : (
+                <a href={item.href ?? "#"} className="block py-2.5 text-sm text-gray-700 hover:text-[#0A1F5C] border-b border-gray-100">
+                  {item.label}
+                </a>
+              )}
+            </div>
           ))}
-          <a href="#" className="block mt-3 bg-[#E8A820] text-[#0A1F5C] font-bold text-sm px-5 py-2.5 rounded-lg text-center">
+          <a
+            href="https://ibank.tblgambia.com/#/acceuil"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block mt-3 bg-[#E8A820] text-[#0A1F5C] font-bold text-sm px-5 py-2.5 rounded-lg text-center"
+          >
             Online Banking →
           </a>
         </div>

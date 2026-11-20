@@ -45,7 +45,7 @@ export default function Hero() {
   const slide = slides[current];
 
   return (
-    <section className="bg-white overflow-hidden relative border-b border-gray-100" style={{ minHeight: "560px" }}>
+    <section className="bg-white overflow-hidden relative border-b border-gray-100" style={{ minHeight: "680px" }}>
       {/* Subtle radial glow */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -62,7 +62,7 @@ export default function Hero() {
             src={slide.img}
             alt=""
             fill
-            className="object-cover object-top"
+            className="object-cover object-center"
             sizes="50vw"
             priority
           />
