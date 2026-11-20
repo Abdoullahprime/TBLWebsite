@@ -40,10 +40,18 @@ const nav = [
     ],
   },
   {
+    section: "International Banking",
+    items: [
+      { label: "International Banking", href: "/services/international/international-banking" },
+      { label: "Correspondent Banks", href: "/services/international/correspondent-banking" },
+    ],
+  },
+  {
     section: "Other Services",
     items: [
       { label: "Trust Alerts", href: "/services/other/trust-alerts" },
       { label: "Exchange Rates", href: "/services/other/exchange-rates" },
+      { label: "More Services", href: "/services/other/more-services" },
     ],
   },
 ];

@@ -235,7 +235,7 @@ export default function BranchesPage() {
             {branches.filter((b) => !b.isHQ).map((branch) => (
               <div
                 key={branch.name}
-                className="bg-[#0A1F5C] rounded-2xl p-6 hover:bg-[#0d2870] hover:shadow-xl transition-all group relative overflow-hidden"
+                className="bg-[#0A1F5C] rounded-2xl p-6 hover:bg-[#0d2870] hover:shadow-xl transition-all group relative overflow-hidden border-l-[3px] border-[#E8A820]"
               >
                 {/* subtle glow */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity pointer-events-none"

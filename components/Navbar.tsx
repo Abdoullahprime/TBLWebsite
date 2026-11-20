@@ -9,11 +9,11 @@ const navItems = [
     children: [
       { label: "Who We Are", href: "/about" },
       { label: "Branches", href: "/about/branches" },
-      { label: "Compliance Policies", href: "#" },
-      { label: "Corporate Social Responsibility", href: "#" },
-      { label: "Subsidiaries", href: "#" },
-      { label: "Recognition and Awards", href: "#" },
-      { label: "AGM", href: "#" },
+      { label: "Compliance Policies", href: "/about/compliance" },
+      { label: "Corporate Social Responsibility", href: "/about/social" },
+      { label: "Subsidiaries", href: "/about/subsidiaries" },
+      { label: "Recognition and Awards", href: "/about/awards" },
+      { label: "AGM", href: "/about/agm" },
     ],
   },
   {
@@ -22,15 +22,15 @@ const navItems = [
       { label: "Accounts", href: "/services/accounts" },
       { label: "Loans", href: "/services/loans/personal" },
       { label: "Digital Banking", href: "/services/digital/online-banking" },
-      { label: "International", href: "#" },
+      { label: "International Banking", href: "/services/international/international-banking" },
       { label: "Exchange Rates", href: "/services/other/exchange-rates" },
     ],
   },
   { label: "Careers", href: "/careers" },
   { label: "Fraud", href: "#" },
   { label: "Downloads", href: "#" },
-  { label: "News", href: "#" },
-  { label: "Contact", href: "#" },
+  { label: "News", href: "/news" },
+  { label: "Contact", href: "/contact" },
 ];
 
 type NavItem = typeof navItems[0];
