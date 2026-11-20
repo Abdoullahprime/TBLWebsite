@@ -22,8 +22,10 @@ export default function Home() {
         <Hero />
         <NewsTicker />
         <RatesStrip />
-        <QuickLinks />
-        <WhyBankWithUs />
+        <div className="bg-[#0A1F5C]">
+          <QuickLinks />
+          <WhyBankWithUs />
+        </div>
         <MomentsSlideshow />
         <MobileBanking />
         <ExchangeRates />
