@@ -69,7 +69,7 @@ export default function MobileBanking() {
             <ul className="space-y-2.5 mb-10">
               {[
                 "Instant GMD transfers to any Gambian bank",
-                "Pay NAWEC, GAMTEL and other utilities",
+                "Pay NAWEC, Airtime and other utilities",
                 "Real-time SMS & push notifications",
                 "Biometric login and two-factor authentication",
               ].map(f => (
